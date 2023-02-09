@@ -44,6 +44,8 @@ class Employe
         $this->_service = $service;
     }
 
-
-
+    public function __toString(): string
+    {
+        return "Nom de l'employé : " . $this->_nom . " " . $this->_prenom . ".<br>" . "Depuis le : " . $this->_dateEmb . " au poste de " . $this->_poste . " avec un salaire de " . $this->_salaire . "K$ brut annuel." . "<br>" . "Il est dans le service " . $this->_service;
+    }
 }
