@@ -9,3 +9,4 @@ $e->setSalaire("20");
 $e->setService("Commercial");
 
 echo ($e);
+
