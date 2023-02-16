@@ -1,7 +1,8 @@
 <?php
 
-// Classe Employé
-class Employe {
+// Classe Employe
+class Employe
+{
     public $nom;
     public $prenom;
     private $age;
@@ -33,38 +34,16 @@ class Employe {
     }
 }
 
-// Classe Patron
+// Classe Patron avec extension de la classe Employe
 
-class Patron {
-    public $nom;
-    public $prenom;
-    private $age;
+class Patron extends Employe
+{
     public $voiture;
 
     public function __construct($prenom, $nom, $age, $voiture)
     {
-        $this->prenom = $prenom;
-        $this->nom = $nom;
-        $this->setAge($age);
+        parent::__construct($prenom, $nom, $age); // permet de récupérer l'héritage du construct de la classe Employe
         $this->voiture = $voiture;
-    }
-
-    public function setAge($age): void
-    {
-        if (is_int($age) && $age >= 1 && $age <= 120) {
-            $this->age = $age;
-        } else {
-            throw new Exception("L'âge d'un employé devrait être un entier entre 1 et 120!");
-        }
-    }
-    public function getAge()
-    {
-        return $this->age;
-    }
-
-    public function presentation()
-    {
-        var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans");
     }
 
     public function rouler() {
@@ -72,12 +51,17 @@ class Patron {
     }
 }
 
+// Création des objets
+
 $employe1 = new Employe("Kaido", "Owls", 23);
 $employe2 = new Employe("Roger", "Karat", 54);
+
+$patron = new Patron("Joseph", "Durand", 55, "Mercedes");
 
 $employe2->setAge(42);
 
 $employe1->presentation();
 $employe2->presentation();
-
+$patron->presentation();
+$patron->rouler();
 
