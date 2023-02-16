@@ -1,6 +1,6 @@
 <?php
 
-// Classe
+// Classe Employé
 class Employe {
     public $nom;
     public $prenom;
@@ -33,7 +33,44 @@ class Employe {
     }
 }
 
+// Classe Patron
 
+class Patron {
+    public $nom;
+    public $prenom;
+    private $age;
+    public $voiture;
+
+    public function __construct($prenom, $nom, $age, $voiture)
+    {
+        $this->prenom = $prenom;
+        $this->nom = $nom;
+        $this->setAge($age);
+        $this->voiture = $voiture;
+    }
+
+    public function setAge($age): void
+    {
+        if (is_int($age) && $age >= 1 && $age <= 120) {
+            $this->age = $age;
+        } else {
+            throw new Exception("L'âge d'un employé devrait être un entier entre 1 et 120!");
+        }
+    }
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    public function presentation()
+    {
+        var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans");
+    }
+
+    public function rouler() {
+        var_dump("Bonjour je roule avec ma $this->voiture !");
+    }
+}
 
 $employe1 = new Employe("Kaido", "Owls", 23);
 $employe2 = new Employe("Roger", "Karat", 54);
