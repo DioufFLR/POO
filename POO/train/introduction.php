@@ -1,11 +1,16 @@
 <?php
 
+class Humain
+
+interface Travailleur {
+    public function travailler();
+}
 // Classe Employe
-class Employe
+class Employe implements Travailleur
 {
     public $nom;
     public $prenom;
-    private $age;
+    protected $age; // protected pour pouvoir utiliser dans son héritage
 
     public function __construct($prenom, $nom, $age)
     {
@@ -13,6 +18,12 @@ class Employe
         $this->nom = $nom;
         $this->setAge($age);
 
+    }
+
+    public function travailler()
+    {
+        // TODO: Implement travailler() method.
+        return "Je suis un employé et je travail";
     }
 
     public function setAge($age): void
@@ -30,7 +41,7 @@ class Employe
 
     public function presentation()
     {
-        var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans");
+        var_dump("Salut, je suis $this->prenom $this->nom et j'ai $this->age ans");
     }
 }
 
@@ -46,6 +57,16 @@ class Patron extends Employe
         $this->voiture = $voiture;
     }
 
+    public function travailler()
+    {
+        return "Je suis le patron et je bosse aussi !";
+    }
+
+    public function presentation()
+    {
+        var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans et j'ai une voiture");
+    }
+
     public function rouler() {
         var_dump("Bonjour je roule avec ma $this->voiture !");
     }
@@ -55,13 +76,30 @@ class Patron extends Employe
 
 $employe1 = new Employe("Kaido", "Owls", 23);
 $employe2 = new Employe("Roger", "Karat", 54);
+$patron = new Patron("Joseph", "Durand", 65, "Mercedes");
 
-$patron = new Patron("Joseph", "Durand", 55, "Mercedes");
 
-$employe2->setAge(42);
+$employe2->setAge(33);
 
 $employe1->presentation();
 $employe2->presentation();
 $patron->presentation();
 $patron->rouler();
 
+class Etudiant implements Travailleur
+{
+    public function travailler()
+    {
+        return "Je suis un étudiant et je révise";
+    }
+}
+
+$etudiant = new Etudiant();
+
+faireTravailler($employe1);
+faireTravailler($patron);
+faireTravailler($etudiant);
+
+function faireTravailler(Travailleur $objet) {
+    var_dump("Travail en cours : {$objet->travailler()}");
+}
