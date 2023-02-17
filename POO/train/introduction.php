@@ -1,12 +1,6 @@
 <?php
 
-class Humain
-
-interface Travailleur {
-    public function travailler();
-}
-// Classe Employe
-class Employe implements Travailleur
+abstract class Humain
 {
     public $nom;
     public $prenom;
@@ -20,11 +14,7 @@ class Employe implements Travailleur
 
     }
 
-    public function travailler()
-    {
-        // TODO: Implement travailler() method.
-        return "Je suis un employé et je travail";
-    }
+    abstract public function travailler();
 
     public function setAge($age): void
     {
@@ -34,9 +24,20 @@ class Employe implements Travailleur
             throw new Exception("L'âge d'un employé devrait être un entier entre 1 et 120!");
         }
     }
+
     public function getAge()
     {
         return $this->age;
+    }
+}
+
+// Classe Employe
+class Employe extends Humain
+{
+    public function travailler()
+    {
+        // TODO: Implement travailler() method.
+        return "Je suis un employé et je travail";
     }
 
     public function presentation()
@@ -86,7 +87,7 @@ $employe2->presentation();
 $patron->presentation();
 $patron->rouler();
 
-class Etudiant implements Travailleur
+class Etudiant extends Humain
 {
     public function travailler()
     {
@@ -94,12 +95,9 @@ class Etudiant implements Travailleur
     }
 }
 
-$etudiant = new Etudiant();
-
 faireTravailler($employe1);
 faireTravailler($patron);
-faireTravailler($etudiant);
 
-function faireTravailler(Travailleur $objet) {
+function faireTravailler(Humain $objet) {
     var_dump("Travail en cours : {$objet->travailler()}");
 }
