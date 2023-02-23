@@ -9,4 +9,6 @@ $e->setSalaire("20");
 $e->setService("Commercial");
 
 echo ($e);
+echo "<br>";
+$e->anciennete("Julien", "Karot", "27.04.2008");
 

@@ -49,6 +49,14 @@ class Employe
         return "Nom de l'employé : " . $this->_nom . " " . $this->_prenom . ".<br>" . "Depuis le : " . $this->_dateEmb . " au poste de " . $this->_poste . " avec un salaire de " . $this->_salaire . "K$ brut annuel." . "<br>" . "Il est dans le service " . $this->_service;
     }
 
+    public function anciennete($_prenom, $_nom, $_dateEmb) {
+        $firstDate = new DateTime($_dateEmb);
+        $secondDate = new \DateTime();
+        $intvl = $firstDate->diff($secondDate);
+
+        echo $_prenom . " " . $_nom . " est dans l'entreprise depuis " . $intvl->y . " années " . $intvl->m . " mois et " . $intvl->d . " jours";
+    }
+
 //    TODO faire methode pour calculer timestamp
 
 }
