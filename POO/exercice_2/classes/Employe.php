@@ -33,9 +33,10 @@ class Employe extends Human
         $secondDate = new \DateTime();
         $intvl = $firstDate->diff($secondDate);
 
+
         $prime = ((5/100) * $this->salaire) * 1000;
         $primeReel = $intvl->y * $prime;
 
-        echo $primeReel . "<br>";
+        echo $this->nom . " " . $this->prenom . " percevra une prime de " . $primeReel . " euros ." . "<br>";
     }
 }
