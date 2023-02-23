@@ -1,6 +1,6 @@
 <?php
 
-class Human
+abstract class Human
 {
     protected $nom;
     protected $prenom;
