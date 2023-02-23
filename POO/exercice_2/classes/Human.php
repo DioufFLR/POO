@@ -9,6 +9,14 @@ class Human
     protected $salaire;
     protected $service;
 
+    /**
+     * @param $nom
+     * @param $prenom
+     * @param $dateEmb
+     * @param $poste
+     * @param $salaire
+     * @param $service
+     */
     public function __construct($nom, $prenom, $dateEmb, $poste, $salaire, $service) {
         $this->nom = $nom;
         $this->prenom = $prenom;
@@ -19,7 +27,6 @@ class Human
     }
 
     //    Listes des setters
-
     public function getNom() { return $this->nom; }
     public function getPrenom() { return $this->prenom; }
     public function getDateEmb() { return $this->dateEmb; }
