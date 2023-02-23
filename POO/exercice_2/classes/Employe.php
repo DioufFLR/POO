@@ -21,7 +21,7 @@ class Employe extends Human
     public function anciennete(): void
     {
         $firstDate = new DateTime($this->dateEmb);
-        $secondDate = new \DateTime();
+        $secondDate = new DateTime();
         $intvl = $firstDate->diff($secondDate);
 
         echo "<br>" . $this->nom . " " . $this->prenom . " est dans l'entreprise depuis " . $intvl->y . " années " . $intvl->m . " mois et " . $intvl->d . " jours" . "<br>";
@@ -32,8 +32,10 @@ class Employe extends Human
         $firstDate = new DateTime($this->dateEmb);
         $secondDate = new \DateTime();
         $intvl = $firstDate->diff($secondDate);
+
         $prime = ((5/100) * $this->salaire) * 1000;
         $primeReel = $intvl->y * $prime;
-        echo $primeReel;
+
+        echo $primeReel . "<br>";
     }
 }

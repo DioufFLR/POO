@@ -19,4 +19,10 @@ $e3->anciennete();
 $e4->anciennete();
 $e5->anciennete();
 
+echo "<br>";
+
 $e->prime();
+$e2->prime();
+$e3->prime();
+$e4->prime();
+$e5->prime();
