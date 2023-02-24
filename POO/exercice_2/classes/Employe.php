@@ -4,6 +4,14 @@ require_once ('Human.php');
 
 class Employe extends Human
 {
+    protected $magName;
+
+    public function __construct($nom, $prenom, $dateEmb, $poste, $salaire, $service, $magName)
+    {
+        parent::__construct($nom, $prenom, $dateEmb, $poste, $salaire, $service);
+        $this->magName = $magName;
+    }
+
     /**
      * @return string
      */
@@ -30,4 +38,5 @@ class Employe extends Human
 
         echo $this->nom . " " . $this->prenom . " percevra une prime de " . $primeReel . " euros" . " au 30/11." . "<br>";
     }
+
 }
