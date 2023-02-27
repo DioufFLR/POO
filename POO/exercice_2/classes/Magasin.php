@@ -7,14 +7,16 @@ class Magasin extends Employe
     private $adressMag;
     private $cdMag;
     private $cityMag;
+    private $restaurant;
 
-    public function __construct($nom, $prenom, $dateEmb, $poste, $salaire, $service, $magName, $adressMag, $cdMag, $cityMag)
+    public function __construct($nom, $prenom, $dateEmb, $poste, $salaire, $service, $magName, $adressMag, $cdMag, $cityMag, $restaurant)
     {
         parent::__construct($nom, $prenom, $dateEmb, $poste, $salaire, $service, $magName);
 
         $this->adressMag = $adressMag;
         $this->cdMag = $cdMag;
         $this->cityMag = $cityMag;
+        $this->restaurant = $restaurant;
     }
 
     /**
@@ -40,9 +42,11 @@ class Magasin extends Employe
         echo "Il" . " percevra une prime de " . $primeReel . " euros" . " au 30/11." . "<br>";
     }
 
-    public function magasin()
+    public function restauration()
     {
+        if ($this->restaurant === 0) {
 
+        }
     }
 
 }
