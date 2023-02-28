@@ -19,6 +19,8 @@ class Magasin extends Employe
         $this->restaurant = $restaurant;
     }
 
+
+
     /**
      * @return void
      * @throws Exception
